@@ -49,7 +49,7 @@ session_start();
         <div class="row">
             <div class="col-sm-10">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="voyage" value="option1" checked>
+                    <input class="form-check-input" type="radio" name="gridRadios" id="voyage" value="option1">
                     <label class="form-check-label" for="voyage">
                         Voyage
                     </label>

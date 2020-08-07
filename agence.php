@@ -1,6 +1,6 @@
 <?php
 session_start();
-// var_dump($_POST);
+var_dump($_POST);
 $nomisok=isset($_POST['nom']) && !empty($_POST['nom']);
 // var_dump($nomisok);
 $prenomisok=isset($_POST['prenom']) && !empty($_POST['prenom']);
@@ -9,7 +9,7 @@ $civiliteisok=isset($_POST['civilite']) && !empty($_POST['civilite']);
 // var_dump($civiliteisok);
 $gridRadiosisok=isset($_POST['gridRadios']) && !empty($_POST['gridRadios']);
 // var_dump($gridRadiosisok);
-if(empty($_SESSION['nom']) && empty($_SESSION['prenom']) && empty($_SESSION['civilite']) && empty($_SESSION['gridRadios'])){
+if(!empty($_SESSION['nom']) && isset($_SESSION['nom'])){
 if(!$nomisok || !$prenomisok || !$civiliteisok || !$gridRadiosisok){
     header('location: formulaire.php');
     exit();
