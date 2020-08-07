@@ -1,24 +1,24 @@
 <?php
 session_start();
 var_dump($_POST);
-$nomisok=isset($_POST['nom']) && !empty($_POST['nom']);
+$nomisok = isset($_POST['nom']) && !empty($_POST['nom']);
 // var_dump($nomisok);
-$prenomisok=isset($_POST['prenom']) && !empty($_POST['prenom']);
+$prenomisok = isset($_POST['prenom']) && !empty($_POST['prenom']);
 // var_dump($prenomisok);
-$civiliteisok=isset($_POST['civilite']) && !empty($_POST['civilite']);
+$civiliteisok = isset($_POST['civilite']) && !empty($_POST['civilite']);
 // var_dump($civiliteisok);
-$gridRadiosisok=isset($_POST['gridRadios']) && !empty($_POST['gridRadios']);
+$gridRadiosisok = isset($_POST['gridRadios']) && !empty($_POST['gridRadios']);
 // var_dump($gridRadiosisok);
-if(!empty($_SESSION['nom']) && isset($_SESSION['nom'])){
-if(!$nomisok || !$prenomisok || !$civiliteisok || !$gridRadiosisok){
-    header('location: formulaire.php');
-    exit();
-}else{
-    $_SESSION['nom']=$_POST['nom'];
-    $_SESSION['prenom']=$_POST['prenom'];
-    $_SESSION['civilite']=$_POST['civilite'];
-    $_SESSION['gridRadios']=$_POST['gridRadios'];
-}
+if (empty($_SESSION['nom']) || !isset($_SESSION['nom'])) {
+    if (!$nomisok || !$prenomisok || !$civiliteisok || !$gridRadiosisok) {
+        header('location: formulaire.php');
+        exit();
+    } else {
+        $_SESSION['nom'] = $_POST['nom'];
+        $_SESSION['prenom'] = $_POST['prenom'];
+        $_SESSION['civilite'] = $_POST['civilite'];
+        $_SESSION['gridRadios'] = $_POST['gridRadios'];
+    }
 }
 
 
@@ -40,70 +40,70 @@ if(!$nomisok || !$prenomisok || !$civiliteisok || !$gridRadiosisok){
 </head>
 
 <body>
-    <?php if($_SESSION['gridRadios']=="option1"): ?>
-    <form action="recapitulatif.php" method="POST" class="bg-secondary container center-div w-50">
-        <div class="form-group row">
-            <label for="civilite" class="col-sm-2 col-form-label">Voyage :</label>
+    <?php if ($_SESSION['gridRadios'] == "option1") : ?>
+        <form action="recapitulatif.php" method="POST" class="bg-secondary container center-div w-50">
             <div class="form-group row">
-                <select class="custom-select" id="civilite" name="choix">
-                    <option selected disabled>Voyage</option>
-                    <option value="Orange city - 100">Orange city - 100Ƶ</option>
-                    <option value="planete kaio - 1532">planete kaio - 1532Ƶ</option>
-                    <option value="planete légume - 645">planete légume - 645Ƶ</option>
-                    <option value="planete yardrat - 1182">planete yardrat - 1182Ƶ</option>
-                </select>
+                <label for="civilite" class="col-sm-2 col-form-label">Voyage :</label>
+                <div class="form-group row">
+                    <select class="custom-select" id="civilite" name="choix">
+                        <option selected disabled>Voyage</option>
+                        <option value="Orange city - 100">Orange city - 100Ƶ</option>
+                        <option value="planete kaio - 1532">planete kaio - 1532Ƶ</option>
+                        <option value="planete légume - 645">planete légume - 645Ƶ</option>
+                        <option value="planete yardrat - 1182">planete yardrat - 1182Ƶ</option>
+                    </select>
+                </div>
             </div>
-        </div>
-        
-        <div class="form-group row">
-            <label for="number" class="col-sm-2 col-form-label">nombre de personne :</label>
-            <div class="col-sm-10">
-                <input type="number" class="width-20" id="number" name="nbpers">
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-10">
-            <a class="btn btn-primary" href="formulaire.php">retour</a>
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary">valider</button>
-            </div>
-        </div>
-    </form>
-    <?php else: ?>
-    <form action="recapitulatif.php" method="POST" class="bg-secondary container center-div w-50">
-        <div class="form-group row">
-            <label for="civilite2" class="col-sm-2 col-form-label">excursion :</label>
+
             <div class="form-group row">
-                <select class="custom-select" id="civilite2" name="choix">
-                    <option selected disabled>excursion</option>
-                    <option value="cell game - 150">cell game - 150Ƶ</option>
-                    <option value="lycée orange stars - 120">lycée orange stars - 120Ƶ</option>
-                    <option value="capsule corp - 482">capsule corp - 482Ƶ</option>
-                    <option value="kame house - 145">kame house - 145Ƶ</option>
-                </select>
+                <label for="number" class="col-sm-2 col-form-label">nombre de personne :</label>
+                <div class="col-sm-10">
+                    <input type="number" class="width-20" id="number" name="nbpers">
+                </div>
             </div>
-        </div>
-        
-        <div class="form-group row">
-            <label for="number2" class="col-sm-2 col-form-label">nombre de personne :</label>
-            <div class="col-sm-10">
-                <input type="number" class="width-20" id="number2" name="nbpers">
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <a class="btn btn-primary" href="formulaire.php">retour</a>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-10">
-            <a class="btn btn-primary" href="formulaire.php">retour</a>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">valider</button>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary">valider</button>
+        </form>
+    <?php else : ?>
+        <form action="recapitulatif.php" method="POST" class="bg-secondary container center-div w-50">
+            <div class="form-group row">
+                <label for="civilite2" class="col-sm-2 col-form-label">excursion :</label>
+                <div class="form-group row">
+                    <select class="custom-select" id="civilite2" name="choix">
+                        <option selected disabled>excursion</option>
+                        <option value="cell game - 150">cell game - 150Ƶ</option>
+                        <option value="lycée orange stars - 120">lycée orange stars - 120Ƶ</option>
+                        <option value="capsule corp - 482">capsule corp - 482Ƶ</option>
+                        <option value="kame house - 145">kame house - 145Ƶ</option>
+                    </select>
+                </div>
             </div>
-        </div>
-    </form>
+
+            <div class="form-group row">
+                <label for="number2" class="col-sm-2 col-form-label">nombre de personne :</label>
+                <div class="col-sm-10">
+                    <input type="number" class="width-20" id="number2" name="nbpers">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <a class="btn btn-primary" href="formulaire.php">retour</a>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">valider</button>
+                </div>
+            </div>
+        </form>
     <?php endif; ?>
 
 
