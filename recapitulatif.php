@@ -31,9 +31,9 @@ $prixtotal= $_SESSION["nbpers"] * $nomvoyage[1];
 <body>
     <h1>Résumé de votre commande</h1>
     <?php if($_SESSION['gridRadios'] ==="option1"): ?>
-    <p>Bonjour, <?=$_SESSION['civilite'] ?> <?= $_SESSION['nom']?> <?= $_SESSION['prenom']?><br>Vous avez choisi un voyage pour <?=$nomvoyage[0] ?> au prix de <?= $nomvoyage[1]?> Ƶ par personne<br>Vous nous avez indiqué <?= $_SESSION['nbpers']?> personnes.<br>le montant total est de <?= $prixtotal?> Ƶ.</p>
+    <p>Bonjour, <?=$_SESSION['civilite'] ?> <?= $_SESSION['nom']?> <?= $_SESSION['prenom']?><br>Vous avez choisi un voyage pour <?=$nomvoyage[0] ?> au prix de <?= $nomvoyage[1]?> Ƶ par personne<br>Vous nous avez indiqué <?= $_SESSION['nbpers']?> personne(s).<br>le montant total est de <?= $prixtotal?> Ƶ.</p>
     <?php else: ?>
-    <p>Bonjour, <?=$_SESSION['civilite'] ?> <?= $_SESSION['nom']?> <?= $_SESSION['prenom']?><br>Vous avez choisi une excursion pour <?=$nomvoyage[0] ?> au prix de <?= $nomvoyage[1]?> Ƶ par personne<br>Vous nous avez indiqué <?= $_SESSION['nbpers']?> personnes.<br>le montant total est de <?= $prixtotal?> Ƶ.</p>
+    <p>Bonjour, <?=$_SESSION['civilite'] ?> <?= $_SESSION['nom']?> <?= $_SESSION['prenom']?><br>Vous avez choisi une excursion pour <?=$nomvoyage[0] ?> au prix de <?= $nomvoyage[1]?> Ƶ par personne<br>Vous nous avez indiqué <?= $_SESSION['nbpers']?> personne(s).<br>le montant total est de <?= $prixtotal?> Ƶ.</p>
     <?php endif; ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js%22%3E"></script>
     <script src=" https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
